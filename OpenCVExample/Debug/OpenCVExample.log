@@ -1,0 +1,97 @@
+﻿  Video.cpp
+c:\users\kdawson\documents\opencvexample\video.cpp(382): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+  Utilities.cpp
+  Region.cpp
+  Recognition.cpp
+c:\users\kdawson\documents\opencvexample\recognition.cpp(243): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(428): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(435): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(448): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(460): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(462): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(466): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(471): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(473): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(477): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(541): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(569): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(572): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(615): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(620): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(623): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(626): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(629): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(649): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(655): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(658): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(661): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\recognition.cpp(664): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+  MyApplication.cpp
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(142): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(184): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(196): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(210): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(221): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\string.h(538): note: see declaration of 'strdup'
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(239): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(276): warning C4018: '>=': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(282): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(338): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(368): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(375): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(388): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(419): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(460): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(467): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(619): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(625): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(640): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(652): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(855): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(902): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(914): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(1284): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(1409): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(1411): warning C4018: '<': signed/unsigned mismatch
+c:\users\kdawson\documents\opencvexample\myapplication.cpp(1448): warning C4018: '<=': signed/unsigned mismatch
+  main.cpp
+  Images.cpp
+  Histograms.cpp
+c:\users\kdawson\documents\opencvexample\histograms.cpp(437): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\kdawson\documents\opencvexample\histograms.cpp(441): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+  Geometric.cpp
+  Features.cpp
+  Edges.cpp
+  CameraCalibration.cpp
+c:\users\kdawson\documents\opencvexample\cameracalibration.cpp(307): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\time.h(505): note: see declaration of 'localtime'
+  Binary.cpp
+  Generating Code...
+c:\users\kdawson\documents\opencvexample\utilities.cpp(38): warning C4717: 'writeText': recursive on all control paths, function will cause runtime stack overflow
+LINK : fatal error LNK1104: cannot open file 'opencv_world320d.lib'
