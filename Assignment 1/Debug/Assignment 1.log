@@ -1,0 +1,15 @@
+﻿  main.cpp
+S:\Documents\GitHub\CSU44053-Computer-Vision\Assignment 1\main.cpp(18,7): warning C4129: 'D': unrecognized character escape sequence
+S:\Documents\GitHub\CSU44053-Computer-Vision\Assignment 1\main.cpp(18,7): warning C4129: 'G': unrecognized character escape sequence
+S:\Documents\GitHub\CSU44053-Computer-Vision\Assignment 1\main.cpp(18,7): warning C4129: 'C': unrecognized character escape sequence
+S:\Documents\GitHub\CSU44053-Computer-Vision\Assignment 1\main.cpp(18,7): warning C4129: 'A': unrecognized character escape sequence
+S:\Documents\GitHub\CSU44053-Computer-Vision\Assignment 1\main.cpp(18,7): warning C4129: 'I': unrecognized character escape sequence
+S:\Documents\GitHub\CSU44053-Computer-Vision\Assignment 1\main.cpp(18,7): warning C4129: '*': unrecognized character escape sequence
+main.obj : error LNK2019: unresolved external symbol "void __cdecl cv::fastFree(void *)" (?fastFree@cv@@YAXPAX@Z) referenced in function "public: __thiscall cv::Mat::~Mat(void)" (??1Mat@cv@@QAE@XZ)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl cv::error(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,char const *,char const *,int)" (?error@cv@@YAXHABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBD1H@Z) referenced in function "public: __thiscall cv::Mat::Mat(class cv::Mat &&)" (??0Mat@cv@@QAE@$$QAV01@@Z)
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall cv::Mat::deallocate(void)" (?deallocate@Mat@cv@@QAEXXZ) referenced in function "public: void __thiscall cv::Mat::release(void)" (?release@Mat@cv@@QAEXXZ)
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall cv::Mat::copySize(class cv::Mat const &)" (?copySize@Mat@cv@@QAEXABV12@@Z) referenced in function "public: __thiscall cv::Mat::Mat(class cv::Mat const &)" (??0Mat@cv@@QAE@ABV01@@Z)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl cv::glob(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::vector<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::allocator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > > &,bool)" (?glob@cv@@YAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@3@_N@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "class cv::Mat __cdecl cv::imread(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int)" (?imread@cv@@YA?AVMat@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z) referenced in function _main
+S:\SDK\opencv\build\x64\vc15\lib\opencv_world412d.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+S:\Documents\GitHub\CSU44053-Computer-Vision\Assignment 1\Debug\Assignment 1.exe : fatal error LNK1120: 6 unresolved externals

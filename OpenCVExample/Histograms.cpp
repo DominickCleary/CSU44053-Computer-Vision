@@ -21,7 +21,7 @@ public:
 		mNumberBins = new int[mNumberChannels];
 		mChannelRange[0] = 0.0;
 		mChannelRange[1] = 255.0;
-		for (int count=0; count<mNumberChannels; count++)
+		for (int count=0; count < mNumberChannels; count++)
 		{
 			mChannelNumbers[count] = count;
 			mNumberBins[count] = number_of_bins;
