@@ -57,7 +57,7 @@ public:
 	void write(FileStorage& fs);
 	void read(FileNode& node);
 	ObjectAndLocation* getObject(int index);
-	void extractAndSetObjectImage(ObjectAndLocation *new_object);
+	void extractAndSetObjectImage(ObjectAndLocation* new_object);
 	string ExtractObjectName(string filenamestr);
 	void FindBestMatch(ObjectAndLocation* new_object, string& object_name, double& match_value);
 protected:
@@ -70,7 +70,7 @@ class ImageWithBlueSignObjects : public ImageWithObjects
 {
 public:
 	ImageWithBlueSignObjects(string passed_filename);
-	ImageWithBlueSignObjects(FileNode& node); 
+	ImageWithBlueSignObjects(FileNode& node);
 	void LocateAndAddAllObjects(AnnotatedImages& training_images);  // *** Student needs to develop this routine and add in objects using the addObject method
 };
 
@@ -81,7 +81,7 @@ class AnnotatedImages
 public:
 	AnnotatedImages(string directory_name);
 	AnnotatedImages();
-	void addAnnotatedImage(ImageWithObjects &annotated_image);
+	void addAnnotatedImage(ImageWithObjects& annotated_image);
 	void write(FileStorage& fs);
 	void read(FileStorage& fs);
 	void read(FileNode& node);
@@ -229,7 +229,7 @@ void ImageWithObjects::write(FileStorage& fs)
 		objects[index].write(fs);
 	fs << "]" << "}";
 }
-void ImageWithObjects::extractAndSetObjectImage(ObjectAndLocation *new_object)
+void ImageWithObjects::extractAndSetObjectImage(ObjectAndLocation* new_object)
 {
 	Mat perspective_warped_image = Mat::zeros(STANDARD_SIGN_WIDTH_AND_HEIGHT, STANDARD_SIGN_WIDTH_AND_HEIGHT, image.type());
 	Mat perspective_matrix(3, 3, CV_32FC1);
@@ -246,7 +246,7 @@ void ImageWithObjects::extractAndSetObjectImage(ObjectAndLocation *new_object)
 }
 void ImageWithObjects::read(FileNode& node)
 {
-	filename = (string) node["Filename"];
+	filename = (string)node["Filename"];
 	image = imread(filename, -1);
 	FileNode images_node = node["Objects"];
 	if (images_node.type() == FileNode::SEQ)
@@ -254,7 +254,7 @@ void ImageWithObjects::read(FileNode& node)
 		for (FileNodeIterator it = images_node.begin(); it != images_node.end(); ++it)
 		{
 			FileNode current_node = *it;
-			ObjectAndLocation *new_object = new ObjectAndLocation(current_node);
+			ObjectAndLocation* new_object = new ObjectAndLocation(current_node);
 			extractAndSetObjectImage(new_object);
 			objects.push_back(*new_object);
 		}
@@ -314,7 +314,7 @@ AnnotatedImages::AnnotatedImages()
 {
 	name = "";
 }
-void AnnotatedImages::addAnnotatedImage(ImageWithObjects &annotated_image)
+void AnnotatedImages::addAnnotatedImage(ImageWithObjects& annotated_image)
 {
 	annotated_images.push_back(&annotated_image);
 }
@@ -349,7 +349,7 @@ void AnnotatedImages::read(FileNode& node)
 }
 void AnnotatedImages::read(string filename)
 {
-	ImageWithBlueSignObjects *new_image_with_objects = new ImageWithBlueSignObjects(filename);
+	ImageWithBlueSignObjects* new_image_with_objects = new ImageWithBlueSignObjects(filename);
 	annotated_images.push_back(new_image_with_objects);
 }
 void AnnotatedImages::LocateAndAddAllObjects(AnnotatedImages& training_images)
@@ -614,7 +614,7 @@ bool ObjectAndLocation::OverlapsWith(ObjectAndLocation* other_object)
 		if (all_points_inside)
 			overlap_area += (max_x - min_x + 1 - 2 * (distance_from_edge + 1)) * (max_y - min_y + 1 - 2 * (distance_from_edge + 1));
 	}
-	double percentage_overlap = (overlap_area*2.0) / (area + other_area);
+	double percentage_overlap = (overlap_area * 2.0) / (area + other_area);
 	return (percentage_overlap >= REQUIRED_OVERLAP);
 }
 
@@ -770,7 +770,7 @@ ConfusionMatrix::ConfusionMatrix(AnnotatedImages training_images)
 	}
 	// Create and initialise confusion matrix
 	confusion_size = class_names.size() + 1;
-	confusion_matrix = new int*[confusion_size];
+	confusion_matrix = new int* [confusion_size];
 	for (int index = 0; (index < confusion_size); index++)
 	{
 		confusion_matrix[index] = new int[confusion_size];
@@ -827,20 +827,20 @@ void ConfusionMatrix::Print()
 		if (recognised_as_index < confusion_size - 1)
 			cout << class_names[recognised_as_index] << ",";
 		else cout << "False Negative,";
+	cout << endl;
+	for (int ground_truth_index = 0; (ground_truth_index <= class_names.size()); ground_truth_index++)
+	{
+		if (ground_truth_index < confusion_size - 1)
+			cout << "Ground Truth," << class_names[ground_truth_index] << ",";
+		else cout << "Ground Truth,False Positive,";
+		for (int recognised_as_index = 0; recognised_as_index < confusion_size; recognised_as_index++)
+			cout << confusion_matrix[ground_truth_index][recognised_as_index] << ",";
 		cout << endl;
-		for (int ground_truth_index = 0; (ground_truth_index <= class_names.size()); ground_truth_index++)
-		{
-			if (ground_truth_index < confusion_size - 1)
-				cout << "Ground Truth," << class_names[ground_truth_index] << ",";
-			else cout << "Ground Truth,False Positive,";
-			for (int recognised_as_index = 0; recognised_as_index < confusion_size; recognised_as_index++)
-				cout << confusion_matrix[ground_truth_index][recognised_as_index] << ",";
-			cout << endl;
-		}
-		double precision = ((double)tp) / ((double)(tp + fp));
-		double recall = ((double)tp) / ((double)(tp + fn));
-		double f1 = 2.0*precision*recall / (precision + recall);
-		cout << endl << "Precision = " << precision << endl << "Recall = " << recall << endl << "F1 = " << f1 << endl;
+	}
+	double precision = ((double)tp) / ((double)(tp + fp));
+	double recall = ((double)tp) / ((double)(tp + fn));
+	double f1 = 2.0 * precision * recall / (precision + recall);
+	cout << endl << "Precision = " << precision << endl << "Recall = " << recall << endl << "F1 = " << f1 << endl;
 }
 
 
@@ -856,25 +856,69 @@ void ObjectAndLocation::setImage(Mat object_image)
 }
 
 
+bool contours_intersect(vector<Point> shape1, vector<Point> shape2) {
+	Rect bounding_rect = boundingRect(shape1);
+
+	for (int i = 0; i < shape2.size(); i++) {
+		if (!bounding_rect.contains(shape2[i])) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+cv::Mat extract_shape(cv::Mat img, vector<Point> contour) {
+	cv::Rect bounding_rect = boundingRect(contour);
+
+	std::vector<vector<Point>> contour_vec;
+	contour_vec.push_back(contour);
+
+	cv::Mat mask = cv::Mat::zeros(img.size(), CV_8UC1);
+	cv::drawContours(mask, contour_vec, 0, cv::Scalar(255), FILLED);
+
+	cv::Mat imageROI;
+	img.copyTo(imageROI, mask);
+	cv::Mat contour_region = imageROI(bounding_rect);
+
+	return contour_region;
+}
+
 void ImageWithBlueSignObjects::LocateAndAddAllObjects(AnnotatedImages& training_images)
 {
-	Mat3b res = image.clone();
-	vector<Rect> result;
-
-	cvtColor(image, image, COLOR_BGR2HSV);
+	// Mat3b res = image.clone();
+	// vector<Rect> result;
+	//
+	Mat hsv_image;
+	cvtColor(image, hsv_image, COLOR_BGR2HSV);
 	Mat1b mask;
 
-	GaussianBlur(image, image, Size(15, 15), 1.5);
-	inRange(image, Scalar(100, 70, 20), Scalar(130, 255, 255), mask);
+	// GaussianBlur(hsv_image, hsv_image, Size(15, 15), 1.5);
+	inRange(hsv_image, Scalar(100, 70, 20), Scalar(130, 255, 255), mask);
+	morphologyEx(mask, mask, MORPH_CLOSE, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
+	morphologyEx(mask, mask, MORPH_OPEN, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
 
-	Mat output;
+	// Mat canny_edge_image;
+	// GaussianBlur(mask, mask, Size(5, 5), 1.5);
+	// Canny(mask, canny_edge_image, 80, 150);
 	
+	vector<vector<Point>> contours;
+	vector<Vec4i> hierarchy;
+
+	findContours(mask.clone(), contours, hierarchy, RETR_TREE, CHAIN_APPROX_NONE);
+
+	cout << contours.size() << "\n";
+	
+	Mat output;
+
 	cvtColor(mask, output, COLOR_GRAY2BGR);
-	// resize(output, output, Size(output.cols / 3, output.rows / 3));
-	// imshow("MASK", output);
+
+	// imshow("HELLO", sign);
 	// char c = cv::waitKey(1);
 	image = output.clone();
+	cout << filename << " finished\n";
 
+	// addObject("FLOOR", 0, 0, 100, 0, 0, 100, 100, 100, image);
 	// *** Student needs to develop this routine and add in objects using the addObject method
 }
 
