@@ -849,12 +849,32 @@ void ConfusionMatrix::Print()
 void ObjectAndLocation::setImage(Mat object_image)
 {
 	image = object_image.clone();
+	// extractChannel(object_image, image, 0);
+	// cvtColor(object_image, image, COLOR_BGR2GRAY);
+	// cout << object_name << "\n";
 	// *** Student should add any initialisation (of their images or features; see private data below) they wish into this method.
 }
 
 
 void ImageWithBlueSignObjects::LocateAndAddAllObjects(AnnotatedImages& training_images)
 {
+	Mat3b res = image.clone();
+	vector<Rect> result;
+
+	cvtColor(image, image, COLOR_BGR2HSV);
+	Mat1b mask;
+
+	GaussianBlur(image, image, Size(15, 15), 1.5);
+	inRange(image, Scalar(100, 70, 20), Scalar(130, 255, 255), mask);
+
+	Mat output;
+	
+	cvtColor(mask, output, COLOR_GRAY2BGR);
+	// resize(output, output, Size(output.cols / 3, output.rows / 3));
+	// imshow("MASK", output);
+	// char c = cv::waitKey(1);
+	image = output.clone();
+
 	// *** Student needs to develop this routine and add in objects using the addObject method
 }
 
