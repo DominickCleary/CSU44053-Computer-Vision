@@ -770,7 +770,7 @@ ConfusionMatrix::ConfusionMatrix(AnnotatedImages training_images)
 	}
 	// Create and initialise confusion matrix
 	confusion_size = class_names.size() + 1;
-	confusion_matrix = new int* [confusion_size];
+	confusion_matrix = new int*[confusion_size];
 	for (int index = 0; (index < confusion_size); index++)
 	{
 		confusion_matrix[index] = new int[confusion_size];
@@ -844,7 +844,13 @@ void ConfusionMatrix::Print()
 }
 
 
-
+bool is_contour_bad(vector<Point> c)
+{
+	double arc_length = arcLength(c, true);
+	Mat approx;
+	approxPolyDP(c, approx, 0.02 * arc_length, true);
+	return approx.size().width != 4;
+}
 
 void ObjectAndLocation::setImage(Mat object_image)
 {
@@ -853,35 +859,6 @@ void ObjectAndLocation::setImage(Mat object_image)
 	// cvtColor(object_image, image, COLOR_BGR2GRAY);
 	// cout << object_name << "\n";
 	// *** Student should add any initialisation (of their images or features; see private data below) they wish into this method.
-}
-
-
-bool contours_intersect(vector<Point> shape1, vector<Point> shape2) {
-	Rect bounding_rect = boundingRect(shape1);
-
-	for (int i = 0; i < shape2.size(); i++) {
-		if (!bounding_rect.contains(shape2[i])) {
-			return false;
-		}
-	}
-
-	return true;
-}
-
-cv::Mat extract_shape(cv::Mat img, vector<Point> contour) {
-	cv::Rect bounding_rect = boundingRect(contour);
-
-	std::vector<vector<Point>> contour_vec;
-	contour_vec.push_back(contour);
-
-	cv::Mat mask = cv::Mat::zeros(img.size(), CV_8UC1);
-	cv::drawContours(mask, contour_vec, 0, cv::Scalar(255), FILLED);
-
-	cv::Mat imageROI;
-	img.copyTo(imageROI, mask);
-	cv::Mat contour_region = imageROI(bounding_rect);
-
-	return contour_region;
 }
 
 void ImageWithBlueSignObjects::LocateAndAddAllObjects(AnnotatedImages& training_images)
@@ -893,32 +870,31 @@ void ImageWithBlueSignObjects::LocateAndAddAllObjects(AnnotatedImages& training_
 	cvtColor(image, hsv_image, COLOR_BGR2HSV);
 	Mat1b mask;
 
-	// GaussianBlur(hsv_image, hsv_image, Size(15, 15), 1.5);
-	inRange(hsv_image, Scalar(100, 70, 20), Scalar(130, 255, 255), mask);
-	morphologyEx(mask, mask, MORPH_CLOSE, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
-	morphologyEx(mask, mask, MORPH_OPEN, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
-
-	// Mat canny_edge_image;
-	// GaussianBlur(mask, mask, Size(5, 5), 1.5);
-	// Canny(mask, canny_edge_image, 80, 150);
+	GaussianBlur(hsv_image, hsv_image, Size(15, 15), 2.5);
+	resize(hsv_image, hsv_image, Size(image.cols /3, image.rows / 3));
+	resize(hsv_image, hsv_image, image.size());
 	
+	inRange(hsv_image, Scalar(100, 70, 20), Scalar(130, 255, 255), mask);
+	morphologyEx(mask, mask, MORPH_CLOSE, getStructuringElement(MORPH_ELLIPSE, Size(3, 3)));
+	morphologyEx(mask, mask, MORPH_OPEN, getStructuringElement(MORPH_ELLIPSE, Size(4, 4)));
+
 	vector<vector<Point>> contours;
 	vector<Vec4i> hierarchy;
+	Mat new_image = Mat::ones(image.rows, image.cols, CV_8UC3);
 
 	findContours(mask.clone(), contours, hierarchy, RETR_TREE, CHAIN_APPROX_NONE);
+		
+	for (size_t i = 0; i < contours.size(); i++)
+	{
+		Scalar colour(rand() & 0xFF, rand() & 0xFF, rand() & 0xFF);
+		if (hierarchy[i][2] != -1 || hierarchy[i][3] != -1)
+		{
+			drawContours(new_image, contours, i, colour, FILLED, 8, hierarchy);
+		}
+	}
 
-	cout << contours.size() << "\n";
-	
-	Mat output;
-
-	cvtColor(mask, output, COLOR_GRAY2BGR);
-
-	// imshow("HELLO", sign);
-	// char c = cv::waitKey(1);
-	image = output.clone();
-	cout << filename << " finished\n";
-
-	// addObject("FLOOR", 0, 0, 100, 0, 0, 100, 100, 100, image);
+	image = new_image.clone();
+	cout << "Finished processing " << filename << "\n";
 	// *** Student needs to develop this routine and add in objects using the addObject method
 }
 
