@@ -176,8 +176,8 @@ string ObjectAndLocation::getVerticesString()
 }
 void ObjectAndLocation::DrawObject(Mat* display_image, Scalar& colour)
 {
-	writeText(*display_image, object_name, vertices[0].y - 8, vertices[0].x + 8, colour, 2.0, 4);
-	polylines(*display_image, vertices, true, colour, 8);
+	// writeText(*display_image, object_name, vertices[0].y - 8, vertices[0].x + 8, colour, 2.0, 4);
+	// polylines(*display_image, vertices, true, colour, 8);
 }
 double ObjectAndLocation::getMinimumSideLength()
 {
@@ -770,7 +770,7 @@ ConfusionMatrix::ConfusionMatrix(AnnotatedImages training_images)
 	}
 	// Create and initialise confusion matrix
 	confusion_size = class_names.size() + 1;
-	confusion_matrix = new int*[confusion_size];
+	confusion_matrix = new int* [confusion_size];
 	for (int index = 0; (index < confusion_size); index++)
 	{
 		confusion_matrix[index] = new int[confusion_size];
@@ -844,12 +844,22 @@ void ConfusionMatrix::Print()
 }
 
 
-bool is_contour_bad(vector<Point> c)
+void draw_line(Mat result_image, Point point1, Point point2, Scalar passed_colour = -1.0)
 {
-	double arc_length = arcLength(c, true);
-	Mat approx;
-	approxPolyDP(c, approx, 0.02 * arc_length, true);
-	return approx.size().width != 4;
+	Scalar colour(rand() & 0xFF, rand() & 0xFF, rand() & 0xFF);
+	line(result_image, point1, point2, (passed_colour.val[0] == -1.0) ? colour : passed_colour);
+}
+
+// Draw line segments delineated by end points
+void draw_lines(Mat result_image, vector<Vec4i> lines, Scalar passed_colour = -1.0)
+{
+	for (vector<cv::Vec4i>::const_iterator current_line = lines.begin();
+		(current_line != lines.end()); current_line++)
+	{
+		Point point1((*current_line)[0], (*current_line)[1]);
+		Point point2((*current_line)[2], (*current_line)[3]);
+		draw_line(result_image, point1, point2, passed_colour);
+	}
 }
 
 void ObjectAndLocation::setImage(Mat object_image)
@@ -863,37 +873,86 @@ void ObjectAndLocation::setImage(Mat object_image)
 
 void ImageWithBlueSignObjects::LocateAndAddAllObjects(AnnotatedImages& training_images)
 {
-	// Mat3b res = image.clone();
-	// vector<Rect> result;
-	//
+
+	// resize(image, image, Size(image.cols / 2, image.rows / 2));
 	Mat hsv_image;
+
 	cvtColor(image, hsv_image, COLOR_BGR2HSV);
 	Mat1b mask;
 
-	GaussianBlur(hsv_image, hsv_image, Size(15, 15), 2.5);
-	resize(hsv_image, hsv_image, Size(image.cols /3, image.rows / 3));
-	resize(hsv_image, hsv_image, image.size());
-	
+	// GaussianBlur(hsv_image, hsv_image, Size(15, 15), 2.5);
+	// resize(hsv_image, hsv_image, Size(image.cols / 2, image.rows / 2));
+	// resize(hsv_image, hsv_image, image.size());
+
 	inRange(hsv_image, Scalar(100, 70, 20), Scalar(130, 255, 255), mask);
 	morphologyEx(mask, mask, MORPH_CLOSE, getStructuringElement(MORPH_ELLIPSE, Size(3, 3)));
-	morphologyEx(mask, mask, MORPH_OPEN, getStructuringElement(MORPH_ELLIPSE, Size(4, 4)));
+	morphologyEx(mask, mask, MORPH_OPEN, getStructuringElement(MORPH_ELLIPSE, Size(8, 8)));
 
 	vector<vector<Point>> contours;
 	vector<Vec4i> hierarchy;
 	Mat new_image = Mat::ones(image.rows, image.cols, CV_8UC3);
 
-	findContours(mask.clone(), contours, hierarchy, RETR_TREE, CHAIN_APPROX_NONE);
-		
+	findContours(mask.clone(), contours, hierarchy, RETR_CCOMP, CHAIN_APPROX_NONE);
+
+	// size_t i = 0;
+	// while(true)
+	// {
+	// 	if ((hierarchy[i][2] != -1 || hierarchy[i][3] != -1))
+	// 	{
+	// 		drawContours(new_image, contours, i, colour, FILLED, 8, hierarchy);
+	// 	}
+	// }
+	// for(size_t i = 0; i < contours.size(); i++)
+	// {
+	// 	auto epsilon = 0.15 * arcLength(contours[i], true);
+	// 	Mat approx;
+	// 	approxPolyDP(contours[i], approx, epsilon, true);
+	// }
+
+	int counter = 0;
 	for (size_t i = 0; i < contours.size(); i++)
 	{
+		Mat approx;
+		double peri = arcLength(contours[i], true);
+		approxPolyDP(contours[i], approx, 0.10 * peri, true);
+
 		Scalar colour(rand() & 0xFF, rand() & 0xFF, rand() & 0xFF);
-		if (hierarchy[i][2] != -1 || hierarchy[i][3] != -1)
+		// if ((hierarchy[i][2] != -1 || hierarchy[i][3] != -1))
+		if (contourArea(contours[i]) > 15000 && approx.size().height == 4)
 		{
 			drawContours(new_image, contours, i, colour, FILLED, 8, hierarchy);
+			cout << "Contour " << counter++ << "\n";
+			for (int j = 0; j < approx.size().height; j++)
+			{
+				cout << approx << "\n";
+			}
+			Rect rect = boundingRect(approx);
+			rectangle(new_image, rect.tl(), rect.br(), Scalar(255, 0, 0), 2, 8, 0);
+			addObject(filename + to_string(i), rect.x, rect.y, rect.x + rect.width, rect.y, rect.x + rect.width, rect.y + rect.height, rect.x, rect.y + rect.height, image);
+			// cout << contourArea(contours[i]) << "\n";
 		}
 	}
 
+
+	// vector<vector<Point>> contours_poly(contours.size());
+	// vector<Rect> boundRect(contours.size());
+	//
+	// for (int i = 0; i < contours.size(); i++)
+	// {
+	// 	approxPolyDP(Mat(contours[i]), contours_poly[i], 3, true);
+	// 	boundRect[i] = boundingRect(Mat(contours_poly[i]));
+	// }
+	//
+	// for (int i = 0; i < contours.size(); i++)
+	// {
+	// 	Scalar colour(255, 255, 255);
+	// 	rectangle(new_image, boundRect[i].tl(), boundRect[i].br(), colour, 2, 8, 0);
+	// }
+
+
+
 	image = new_image.clone();
+	// image = cdstP.clone();
 	cout << "Finished processing " << filename << "\n";
 	// *** Student needs to develop this routine and add in objects using the addObject method
 }
