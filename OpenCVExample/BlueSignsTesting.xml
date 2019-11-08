@@ -6,103 +6,815 @@
     <_>
       <Filename>"Blue Signs/Testing/Blue001.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2466 1216</_>
+            <_>
+              2748 1214</_>
+            <_>
+              2742 1470</_>
+            <_>
+              2466 1474</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2406 1142</_>
+            <_>
+              2446 1144</_>
+            <_>
+              2428 1548</_>
+            <_>
+              2396 1542</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2778 1142</_>
+            <_>
+              2818 1140</_>
+            <_>
+              2806 1546</_>
+            <_>
+              2770 1552</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2360 1098</_>
+            <_>
+              2870 1098</_>
+            <_>
+              2844 1592</_>
+            <_>
+              2350 1582</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue002.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2304 1032</_>
+            <_>
+              2336 1036</_>
+            <_>
+              2348 1360</_>
+            <_>
+              2320 1370</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2596 998</_>
+            <_>
+              2634 994</_>
+            <_>
+              2656 1332</_>
+            <_>
+              2622 1342</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2238 992</_>
+            <_>
+              2692 934</_>
+            <_>
+              2722 1382</_>
+            <_>
+              2258 1428</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue003.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1016 944</_>
+            <_>
+              1450 932</_>
+            <_>
+              1458 1368</_>
+            <_>
+              1028 1380</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue004.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2034 1500</_>
+            <_>
+              2230 1494</_>
+            <_>
+              2234 1684</_>
+            <_>
+              2042 1694</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2300 1494</_>
+            <_>
+              2496 1488</_>
+            <_>
+              2498 1678</_>
+            <_>
+              2306 1688</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue005.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1540 1404</_>
+            <_>
+              1706 1402</_>
+            <_>
+              1706 1564</_>
+            <_>
+              1544 1570</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue007.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2006 826</_>
+            <_>
+              2308 838</_>
+            <_>
+              2330 1132</_>
+            <_>
+              2026 1134</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1586 804</_>
+            <_>
+              1908 816</_>
+            <_>
+              1924 1124</_>
+            <_>
+              1600 1124</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue008.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3948 1996</_>
+            <_>
+              3998 2036</_>
+            <_>
+              3994 2218</_>
+            <_>
+              3924 2148</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3548 1886</_>
+            <_>
+              3716 1882</_>
+            <_>
+              3692 2032</_>
+            <_>
+              3528 2028</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3214 1870</_>
+            <_>
+              3378 1880</_>
+            <_>
+              3358 2020</_>
+            <_>
+              3200 2012</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1906 1248</_>
+            <_>
+              2068 1248</_>
+            <_>
+              2070 1406</_>
+            <_>
+              1912 1410</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1688 1242</_>
+            <_>
+              1850 1244</_>
+            <_>
+              1852 1402</_>
+            <_>
+              1696 1404</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue011.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3600 528</_>
+            <_>
+              3802 540</_>
+            <_>
+              3780 750</_>
+            <_>
+              3584 740</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              274 396</_>
+            <_>
+              516 400</_>
+            <_>
+              528 632</_>
+            <_>
+              288 636</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue012.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              8 2096</_>
+            <_>
+              266 2086</_>
+            <_>
+              258 2186</_>
+            <_>
+              0 2202</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              120 916</_>
+            <_>
+              394 924</_>
+            <_>
+              398 1166</_>
+            <_>
+              126 1166</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2270 580</_>
+            <_>
+              2796 614</_>
+            <_>
+              2810 1164</_>
+            <_>
+              2280 1156</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue016.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3566 718</_>
+            <_>
+              3690 730</_>
+            <_>
+              3684 910</_>
+            <_>
+              3562 898</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3228 684</_>
+            <_>
+              3368 698</_>
+            <_>
+              3362 890</_>
+            <_>
+              3226 880</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2550 628</_>
+            <_>
+              2734 648</_>
+            <_>
+              2730 868</_>
+            <_>
+              2550 856</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1746 528</_>
+            <_>
+              1966 552</_>
+            <_>
+              1964 792</_>
+            <_>
+              1750 774</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1124 458</_>
+            <_>
+              1386 490</_>
+            <_>
+              1388 748</_>
+            <_>
+              1132 728</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue017.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1748 982</_>
+            <_>
+              1970 966</_>
+            <_>
+              1966 1202</_>
+            <_>
+              1744 1220</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2042 960</_>
+            <_>
+              2282 940</_>
+            <_>
+              2276 1190</_>
+            <_>
+              2040 1204</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue018.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1934 904</_>
+            <_>
+              2210 900</_>
+            <_>
+              2216 1166</_>
+            <_>
+              1940 1174</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue019.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2596 1288</_>
+            <_>
+              2878 1284</_>
+            <_>
+              2820 1584</_>
+            <_>
+              2546 1600</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1342 1156</_>
+            <_>
+              1646 1152</_>
+            <_>
+              1652 1448</_>
+            <_>
+              1356 1464</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue020.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1790 702</_>
+            <_>
+              2002 754</_>
+            <_>
+              2024 946</_>
+            <_>
+              1806 904</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1488 638</_>
+            <_>
+              1718 684</_>
+            <_>
+              1744 888</_>
+            <_>
+              1514 856</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue021.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              236 1100</_>
+            <_>
+              394 1092</_>
+            <_>
+              396 1262</_>
+            <_>
+              242 1274</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2912 1012</_>
+            <_>
+              3122 1002</_>
+            <_>
+              3124 1200</_>
+            <_>
+              2918 1212</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue023.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1968 1192</_>
+            <_>
+              2104 1194</_>
+            <_>
+              2104 1324</_>
+            <_>
+              1972 1328</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue025.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1650 1220</_>
+            <_>
+              1934 1194</_>
+            <_>
+              1938 1474</_>
+            <_>
+              1652 1500</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue028.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2132 1108</_>
+            <_>
+              2260 1104</_>
+            <_>
+              2262 1228</_>
+            <_>
+              2138 1234</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2304 1104</_>
+            <_>
+              2432 1102</_>
+            <_>
+              2434 1224</_>
+            <_>
+              2308 1234</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue030.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1096 1494</_>
+            <_>
+              1272 1494</_>
+            <_>
+              1270 1662</_>
+            <_>
+              1094 1666</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              848 1490</_>
+            <_>
+              1028 1490</_>
+            <_>
+              1024 1660</_>
+            <_>
+              846 1666</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1722 706</_>
+            <_>
+              2050 710</_>
+            <_>
+              2052 1028</_>
+            <_>
+              1726 1028</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1304 694</_>
+            <_>
+              1638 700</_>
+            <_>
+              1640 1020</_>
+            <_>
+              1304 1020</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue034.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1960 1400</_>
+            <_>
+              2184 1396</_>
+            <_>
+              2188 1614</_>
+            <_>
+              1962 1624</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1724 1394</_>
+            <_>
+              1944 1402</_>
+            <_>
+              1938 1622</_>
+            <_>
+              1716 1622</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2206 1396</_>
+            <_>
+              2434 1390</_>
+            <_>
+              2440 1614</_>
+            <_>
+              2212 1622</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2458 1392</_>
+            <_>
+              2692 1386</_>
+            <_>
+              2700 1612</_>
+            <_>
+              2466 1620</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue035.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              272 1114</_>
+            <_>
+              492 1108</_>
+            <_>
+              488 1328</_>
+            <_>
+              266 1338</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              864 1106</_>
+            <_>
+              1088 1100</_>
+            <_>
+              1084 1324</_>
+            <_>
+              864 1332</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2402 810</_>
+            <_>
+              2578 806</_>
+            <_>
+              2576 976</_>
+            <_>
+              2400 976</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2646 804</_>
+            <_>
+              2824 800</_>
+            <_>
+              2824 972</_>
+            <_>
+              2644 972</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2882 798</_>
+            <_>
+              3064 794</_>
+            <_>
+              3066 966</_>
+            <_>
+              2882 966</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3374 786</_>
+            <_>
+              3562 778</_>
+            <_>
+              3572 952</_>
+            <_>
+              3386 962</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue036.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1374 1320</_>
+            <_>
+              1508 1324</_>
+            <_>
+              1500 1458</_>
+            <_>
+              1368 1452</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2132 718</_>
+            <_>
+              2362 714</_>
+            <_>
+              2364 938</_>
+            <_>
+              2136 948</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2444 714</_>
+            <_>
+              2676 708</_>
+            <_>
+              2678 936</_>
+            <_>
+              2450 946</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue037.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2054 1312</_>
+            <_>
+              2186 1310</_>
+            <_>
+              2188 1438</_>
+            <_>
+              2060 1444</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1904 1310</_>
+            <_>
+              2036 1308</_>
+            <_>
+              2038 1436</_>
+            <_>
+              1908 1442</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1752 1310</_>
+            <_>
+              1886 1308</_>
+            <_>
+              1888 1436</_>
+            <_>
+              1756 1442</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue038.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2814 1386</_>
+            <_>
+              2990 1384</_>
+            <_>
+              2994 1552</_>
+            <_>
+              2822 1560</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1802 1242</_>
+            <_>
+              1914 1242</_>
+            <_>
+              1918 1350</_>
+            <_>
+              1808 1354</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1652 1240</_>
+            <_>
+              1766 1240</_>
+            <_>
+              1768 1346</_>
+            <_>
+              1658 1352</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue042.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1404 626</_>
+            <_>
+              1648 630</_>
+            <_>
+              1648 864</_>
+            <_>
+              1408 866</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1090 616</_>
+            <_>
+              1336 620</_>
+            <_>
+              1338 858</_>
+            <_>
+              1092 858</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2738 520</_>
+            <_>
+              3128 522</_>
+            <_>
+              3134 910</_>
+            <_>
+              2746 916</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue043.jpg"</Filename>
       <Objects>
@@ -114,25 +826,239 @@
     <_>
       <Filename>"Blue Signs/Testing/Blue045.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2766 1036</_>
+            <_>
+              3058 1104</_>
+            <_>
+              3102 1492</_>
+            <_>
+              2806 1446</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2294 930</_>
+            <_>
+              2646 1010</_>
+            <_>
+              2682 1432</_>
+            <_>
+              2322 1380</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1722 800</_>
+            <_>
+              2156 902</_>
+            <_>
+              2176 1364</_>
+            <_>
+              1734 1298</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue046.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1218 1402</_>
+            <_>
+              1352 1396</_>
+            <_>
+              1336 1512</_>
+            <_>
+              1204 1518</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1124 1288</_>
+            <_>
+              1500 1270</_>
+            <_>
+              1468 1600</_>
+            <_>
+              1076 1616</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1626 1260</_>
+            <_>
+              2002 1242</_>
+            <_>
+              2000 1572</_>
+            <_>
+              1604 1588</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2122 1232</_>
+            <_>
+              2508 1214</_>
+            <_>
+              2534 1546</_>
+            <_>
+              2130 1562</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue047.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2050 1078</_>
+            <_>
+              2828 1078</_>
+            <_>
+              2800 1850</_>
+            <_>
+              2044 1820</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1180 1076</_>
+            <_>
+              1896 1080</_>
+            <_>
+              1890 1818</_>
+            <_>
+              1190 1792</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue048.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1602 1292</_>
+            <_>
+              1766 1288</_>
+            <_>
+              1766 1452</_>
+            <_>
+              1604 1458</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue050.jpg"</Filename>
       <Objects>
-        </Objects></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1804 1524</_>
+            <_>
+              1934 1508</_>
+            <_>
+              1920 1624</_>
+            <_>
+              1790 1640</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1350 1476</_>
+            <_>
+              1684 1430</_>
+            <_>
+              1628 1754</_>
+            <_>
+              1278 1794</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1720 1420</_>
+            <_>
+              2078 1372</_>
+            <_>
+              2048 1704</_>
+            <_>
+              1668 1746</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2118 1362</_>
+            <_>
+              2510 1306</_>
+            <_>
+              2508 1652</_>
+            <_>
+              2094 1696</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2552 1296</_>
+            <_>
+              2982 1236</_>
+            <_>
+              3018 1594</_>
+            <_>
+              2556 1642</_></coordinates></_></Objects></_>
     <_>
       <Filename>"Blue Signs/Testing/Blue051.jpg"</Filename>
       <Objects>
-        </Objects></_></ImagesAndObjects></AnnotatedImages>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              1906 958</_>
+            <_>
+              2170 948</_>
+            <_>
+              2172 1212</_>
+            <_>
+              1912 1222</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2190 948</_>
+            <_>
+              2462 936</_>
+            <_>
+              2468 1202</_>
+            <_>
+              2200 1216</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              2696 928</_>
+            <_>
+              2982 914</_>
+            <_>
+              2988 1186</_>
+            <_>
+              2704 1200</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3024 912</_>
+            <_>
+              3316 902</_>
+            <_>
+              3320 1180</_>
+            <_>
+              3026 1186</_></coordinates></_>
+        <_>
+          <nameStr>Coffee</nameStr>
+          <coordinates>
+            <_>
+              3964 176</_>
+            <_>
+              3998 176</_>
+            <_>
+              3998 716</_>
+            <_>
+              3962 708</_></coordinates></_></Objects></_></ImagesAndObjects></AnnotatedImages>
 </opencv_storage>

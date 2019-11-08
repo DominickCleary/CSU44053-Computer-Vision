@@ -176,8 +176,8 @@ string ObjectAndLocation::getVerticesString()
 }
 void ObjectAndLocation::DrawObject(Mat* display_image, Scalar& colour)
 {
-	// writeText(*display_image, object_name, vertices[0].y - 8, vertices[0].x + 8, colour, 2.0, 4);
-	// polylines(*display_image, vertices, true, colour, 8);
+	writeText(*display_image, object_name, vertices[0].y - 8, vertices[0].x + 8, colour, 2.0, 4);
+	polylines(*display_image, vertices, true, colour, 8);
 }
 double ObjectAndLocation::getMinimumSideLength()
 {
@@ -843,22 +843,112 @@ void ConfusionMatrix::Print()
 	cout << endl << "Precision = " << precision << endl << "Recall = " << recall << endl << "F1 = " << f1 << endl;
 }
 
-
-void draw_line(Mat result_image, Point point1, Point point2, Scalar passed_colour = -1.0)
+bool sort_for_x(Point2i i, Point2i j)
 {
-	Scalar colour(rand() & 0xFF, rand() & 0xFF, rand() & 0xFF);
-	line(result_image, point1, point2, (passed_colour.val[0] == -1.0) ? colour : passed_colour);
+	return i.x > j.x;
 }
 
-// Draw line segments delineated by end points
-void draw_lines(Mat result_image, vector<Vec4i> lines, Scalar passed_colour = -1.0)
+bool sort_for_y(Point2i i, Point2i j)
 {
-	for (vector<cv::Vec4i>::const_iterator current_line = lines.begin();
-		(current_line != lines.end()); current_line++)
+	return i.y < j.y;
+}
+
+void chamfer_matching(Mat& chamfer_image, Mat& model, Mat& matching_image)
+{
+	vector<Point2i> model_points;
+	int channels = model.channels();
+
+	for (int row = 0; row < model.rows; row++)
 	{
-		Point point1((*current_line)[0], (*current_line)[1]);
-		Point point2((*current_line)[2], (*current_line)[3]);
-		draw_line(result_image, point1, point2, passed_colour);
+		auto* ptr = model.ptr<uchar>(row);
+
+		for (int col = 0; col < model.cols; col++)
+		{
+			if (*ptr > 0)
+			{
+				model_points.emplace_back(col, row);
+			}
+			ptr += channels;
+		}
+	}
+
+	channels = chamfer_image.channels();
+
+	matching_image = Mat(chamfer_image.rows - model.rows + 1, chamfer_image.cols - model.cols + 1, CV_32FC1);
+
+	for(int row = 0; row <= chamfer_image.rows - model.rows; row++)
+	{
+		auto* output = matching_image.ptr<float>(row);
+
+		for(int col = 0; col <= chamfer_image.cols - model.cols; col++)
+		{
+			float score = 0.0;
+
+			for(int count = 0; count < model_points.size(); count++)
+			{
+				score += *(chamfer_image.ptr<float>(row + model_points[count].y) + col + model_points[count].x * channels);
+			}
+
+			*output = score;
+			output++;
+		}
+	}
+}
+
+Mat find_minima(Mat input_image, Mat minima, float threshold_val)
+{
+	Mat threshold1, threshold2, eroded, image = input_image.clone();
+
+	erode(image, eroded, Mat());
+	compare(image, eroded, minima, CMP_EQ);
+	threshold(image, threshold1, threshold_val, 255, THRESH_BINARY_INV);
+	threshold1.convertTo(threshold2, CV_8U);
+	bitwise_and(minima, threshold2, minima);
+
+	return minima;
+}
+
+int identify_sign(const Mat& image, const vector<Mat>& training_images)
+{
+	Mat edges, chamfer_image;
+	
+	GaussianBlur(image, edges, Size(5, 5), 1.5);
+	cvtColor(edges, edges, COLOR_BGR2GRAY);
+	Canny(edges, edges, 50, 100, 3);
+	threshold(edges, edges, 127, 255, THRESH_BINARY_INV);
+	distanceTransform(edges, chamfer_image, DIST_L2, 3);
+
+	int best_match = -1;
+	int best_match_count = 0;
+
+	for (const auto& training_image : training_images)
+	{
+		Mat result, sample = training_image.clone();
+
+		GaussianBlur(sample, sample, Size(5, 5), 1.5);
+		cvtColor(sample, sample, COLOR_BGR2GRAY);
+		Canny(sample, sample, 100, 200, 3);
+		threshold(sample, sample, 127, 255, THRESH_BINARY);
+
+		imshow("asd", sample);
+		char c = waitKey(1);
+		chamfer_matching(chamfer_image, sample, result);
+
+		// const Mat minima = find_minima(result, Mat(), 20000);
+		//
+		// cout << minima << "\n";
+		//
+		// int count = countNonZero(minima);
+		// cout << count << "\n";
+
+	// 	if(count > best_match)
+	// 	{
+	// 		best_match++;
+	// 		best_match_count = count;
+	// 	}
+	//
+	// 	return best_match;
+		return 0;
 	}
 }
 
@@ -873,88 +963,78 @@ void ObjectAndLocation::setImage(Mat object_image)
 
 void ImageWithBlueSignObjects::LocateAndAddAllObjects(AnnotatedImages& training_images)
 {
-
-	// resize(image, image, Size(image.cols / 2, image.rows / 2));
-	Mat hsv_image;
-
-	cvtColor(image, hsv_image, COLOR_BGR2HSV);
+	Mat working_image, hsv_image;
 	Mat1b mask;
-
-	// GaussianBlur(hsv_image, hsv_image, Size(15, 15), 2.5);
-	// resize(hsv_image, hsv_image, Size(image.cols / 2, image.rows / 2));
-	// resize(hsv_image, hsv_image, image.size());
-
-	inRange(hsv_image, Scalar(100, 70, 20), Scalar(130, 255, 255), mask);
-	morphologyEx(mask, mask, MORPH_CLOSE, getStructuringElement(MORPH_ELLIPSE, Size(3, 3)));
-	morphologyEx(mask, mask, MORPH_OPEN, getStructuringElement(MORPH_ELLIPSE, Size(8, 8)));
-
 	vector<vector<Point>> contours;
+	vector<vector<Point>> rect_cnts;
 	vector<Vec4i> hierarchy;
-	Mat new_image = Mat::ones(image.rows, image.cols, CV_8UC3);
+	vector<Vec8i> contour_pnts;
+	vector<Rect> bound_rect;
+	vector<Mat> training;
 
+	for (auto& annotated_image : training_images.annotated_images)
+	{
+		training.push_back(annotated_image->getObject(0)->getImage().clone());
+	}
+
+	resize(image, working_image, Size(image.cols / 2, image.rows / 2));
+	cvtColor(working_image, hsv_image, COLOR_BGR2HSV);
+	inRange(hsv_image, Scalar(100, 70, 20), Scalar(130, 255, 255), mask);
+	morphologyEx(mask, mask, MORPH_CLOSE, getStructuringElement(MORPH_ELLIPSE, Size(2, 2)));
+	morphologyEx(mask, mask, MORPH_OPEN, getStructuringElement(MORPH_ELLIPSE, Size(4, 4)));
 	findContours(mask.clone(), contours, hierarchy, RETR_CCOMP, CHAIN_APPROX_NONE);
 
-	// size_t i = 0;
-	// while(true)
-	// {
-	// 	if ((hierarchy[i][2] != -1 || hierarchy[i][3] != -1))
-	// 	{
-	// 		drawContours(new_image, contours, i, colour, FILLED, 8, hierarchy);
-	// 	}
-	// }
-	// for(size_t i = 0; i < contours.size(); i++)
-	// {
-	// 	auto epsilon = 0.15 * arcLength(contours[i], true);
-	// 	Mat approx;
-	// 	approxPolyDP(contours[i], approx, epsilon, true);
-	// }
-
-	int counter = 0;
 	for (size_t i = 0; i < contours.size(); i++)
 	{
 		Mat approx;
-		double peri = arcLength(contours[i], true);
-		approxPolyDP(contours[i], approx, 0.10 * peri, true);
+		approxPolyDP(contours[i], approx, 0.02 * arcLength(contours[i], true), true);
 
-		Scalar colour(rand() & 0xFF, rand() & 0xFF, rand() & 0xFF);
-		// if ((hierarchy[i][2] != -1 || hierarchy[i][3] != -1))
-		if (contourArea(contours[i]) > 15000 && approx.size().height == 4)
+		if (hierarchy[i][2] == -1 && contourArea(contours[i]) > MINIMUM_SIGN_AREA / 4 && contourArea(contours[i]) < 150000 && approx.size().height == 4)
 		{
-			drawContours(new_image, contours, i, colour, FILLED, 8, hierarchy);
-			cout << "Contour " << counter++ << "\n";
-			for (int j = 0; j < approx.size().height; j++)
-			{
-				cout << approx << "\n";
-			}
-			Rect rect = boundingRect(approx);
-			rectangle(new_image, rect.tl(), rect.br(), Scalar(255, 0, 0), 2, 8, 0);
-			addObject(filename + to_string(i), rect.x, rect.y, rect.x + rect.width, rect.y, rect.x + rect.width, rect.y + rect.height, rect.x, rect.y + rect.height, image);
-			// cout << contourArea(contours[i]) << "\n";
+			bound_rect.push_back(boundingRect(approx));
+			vector<Point2i> points(4);
+			points[0] = Point2i(approx.at<int>(0, 0), approx.at<int>(0, 1));
+			points[1] = Point2i(approx.at<int>(1, 0), approx.at<int>(1, 1));
+			points[2] = Point2i(approx.at<int>(2, 0), approx.at<int>(2, 1));
+			points[3] = Point2i(approx.at<int>(3, 0), approx.at<int>(3, 1));
+
+			sort(points.begin(), points.end(), sort_for_x);
+			sort(points.begin(), points.end() - 2, sort_for_y);
+			sort(points.begin() + 2, points.end(), sort_for_y);
+
+			contour_pnts.emplace_back(points[2].x, points[2].y, points[0].x, points[0].y, points[1].x, points[1].y, points[3].x, points[3].y);
 		}
 	}
 
+	resize(working_image, working_image, Size(working_image.cols * 2, working_image.rows * 2));
+	Point2f source_points[4], destination_points[4];
+	Mat perspective_matrix(3, 3, CV_32FC1), perspective_warped_image;
 
-	// vector<vector<Point>> contours_poly(contours.size());
-	// vector<Rect> boundRect(contours.size());
-	//
-	// for (int i = 0; i < contours.size(); i++)
-	// {
-	// 	approxPolyDP(Mat(contours[i]), contours_poly[i], 3, true);
-	// 	boundRect[i] = boundingRect(Mat(contours_poly[i]));
-	// }
-	//
-	// for (int i = 0; i < contours.size(); i++)
-	// {
-	// 	Scalar colour(255, 255, 255);
-	// 	rectangle(new_image, boundRect[i].tl(), boundRect[i].br(), colour, 2, 8, 0);
-	// }
+	for (size_t i = 0; i < bound_rect.size(); i++)
+	{
+		source_points[0] = Point2f(float(contour_pnts[i][0] - bound_rect[i].x) * 2, float(contour_pnts[i][1] - bound_rect[i].y) * 2);
+		source_points[1] = Point2f(float(contour_pnts[i][2] - bound_rect[i].x) * 2, float(contour_pnts[i][3] - bound_rect[i].y) * 2);
+		source_points[2] = Point2f(float(contour_pnts[i][4] - bound_rect[i].x) * 2, float(contour_pnts[i][5] - bound_rect[i].y) * 2);
+		source_points[3] = Point2f(float(contour_pnts[i][6] - bound_rect[i].x) * 2, float(contour_pnts[i][7] - bound_rect[i].y) * 2);
+		destination_points[0] = Point2f(0, 0);
+		destination_points[1] = Point2f((bound_rect[i].width * 2) - 1, 0);
+		destination_points[2] = Point2f((bound_rect[i].width * 2) - 1, (bound_rect[i].height * 2) - 1);
+		destination_points[3] = Point2f(0, (bound_rect[i].height * 2) - 1);
 
+		working_image = image(Rect(bound_rect[i].x * 2, bound_rect[i].y * 2, bound_rect[i].width * 2, bound_rect[i].height * 2));
+		perspective_matrix = getPerspectiveTransform(source_points, destination_points);
+		warpPerspective(working_image, perspective_warped_image, perspective_matrix, working_image.size());
+		resize(perspective_warped_image, perspective_warped_image, Size(STANDARD_SIGN_WIDTH_AND_HEIGHT, STANDARD_SIGN_WIDTH_AND_HEIGHT));
 
+		int match = identify_sign(perspective_warped_image, training);
+		string type = training_images.annotated_images[match]->getObject(0)->getName();
+		cout << match << "\n";
 
-	image = new_image.clone();
-	// image = cdstP.clone();
-	cout << "Finished processing " << filename << "\n";
+		addObject(type, contour_pnts[i][0] * 2, contour_pnts[i][1] * 2, contour_pnts[i][2] * 2, contour_pnts[i][3] * 2, contour_pnts[i][4] * 2, contour_pnts[i][5] * 2, contour_pnts[i][6] * 2, contour_pnts[i][7] * 2, perspective_warped_image);
+	}
 	// *** Student needs to develop this routine and add in objects using the addObject method
+
+	cout << "Finished processing " << filename << "\n";
 }
 
 
